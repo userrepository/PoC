@@ -5,7 +5,11 @@
     <classes>
       <class name="testexecution.DemoTest">
         <methods>
+          <include name="end"/>
+          <include name="readPropertyFile"/>
           <include name="test2"/>
+          <include name="test3"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- testexecution.DemoTest -->
     </classes>
