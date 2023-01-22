@@ -3,22 +3,19 @@
 <suite name="Failed suite [RetryFailedTestCases]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="retryfail.MyTransformer"/>
+    <listener class-name="listeners.MyListeners"/>
   </listeners>
   <test thread-count="5" name="RetryMultipleFailedCases(failed)">
     <classes>
       <class name="testexecution.DemoTest">
         <methods>
+          <include name="end"/>
+          <include name="readPropertyFile"/>
           <include name="test2"/>
           <include name="test3"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- testexecution.DemoTest -->
-      <class name="testexecution.HomePageTest">
-        <methods>
-          <include name="readPropertyFile"/>
-          <include name="setUp"/>
-          <include name="validateHotelTitle"/>
-        </methods>
-      </class> <!-- testexecution.HomePageTest -->
     </classes>
   </test> <!-- RetryMultipleFailedCases(failed) -->
 </suite> <!-- Failed suite [RetryFailedTestCases] -->

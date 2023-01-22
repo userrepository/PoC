@@ -55,7 +55,7 @@ public class MyListeners extends GenerateExtentReport implements ITestListener
 	public void onTestSkipped(ITestResult result) 
 	{
 		logger = extent.createTest(result.getName());
-		logger.log(Status.SKIP, MarkupHelper.createLabel("Name of Test Case: " + result.getName(), ExtentColor.BLUE));
+		logger.log(Status.SKIP, MarkupHelper.createLabel("Name of Test Case: " + result.getName(), ExtentColor.ORANGE));
 		try {
 			logger.log(Status.SKIP, MediaEntityBuilder.createScreenCaptureFromPath(getScreenshot(driver, result.getName())).build());
 		} catch (IOException e) {

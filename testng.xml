@@ -3,8 +3,9 @@
 <suite name="RetryFailedTestCases">
 	<listeners>
 		<listener class-name="retryfail.MyTransformer"></listener>
+		<listener class-name="listeners.MyListeners"></listener>
 	</listeners>
-  <test thread-count="5" name="RetryMultipleFailedCases">
+  <test thread-count="1" name="RetryMultipleFailedCases">
     <classes>
       <class name="testexecution.HomePageTest"/>
       <class name="testexecution.DemoTest"/>

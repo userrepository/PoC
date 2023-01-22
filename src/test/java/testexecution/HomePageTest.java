@@ -25,11 +25,11 @@ public class HomePageTest extends BaseClass
 		hm = new HomePage();
 	}
 	
-//	@AfterMethod
-//	public void end() 
-//	{
-//		driver.quit();
-//	}
+	@AfterMethod
+	public void end() 
+	{
+		driver.quit();
+	}
 
 	@Test
 	public void validateHotelTitle() throws InterruptedException 

@@ -12,7 +12,7 @@ import base.BaseClass;
 import listeners.MyListeners;
 import pom.HomePage;
 
-@Listeners(MyListeners.class)
+//@Listeners(MyListeners.class)
 public class DemoTest extends BaseClass
 {
 	@BeforeMethod
@@ -33,21 +33,21 @@ public class DemoTest extends BaseClass
 	@Test
 	public void test1() 
 	{
-		System.out.println("this is test 1");
+		System.out.println("this is test 1>> "+Thread.currentThread().getId());
 		Assert.assertEquals(true, true);
 	}
 	
 	@Test//(retryAnalyzer = retryfail.RetryAnalyzer.class)
 	public void test2() 
 	{
-		System.out.println("this is test 2");
+		System.out.println("this is test 2>> "+Thread.currentThread().getId());
 		Assert.assertEquals(false, true);
 	}
 	
 	@Test
 	public void test3() 
 	{
-		System.out.println("this is test 3");
+		System.out.println("this is test 3>> "+Thread.currentThread().getId());
 		Assert.assertEquals(false, true);
 	}
 
