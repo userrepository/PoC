@@ -1,13 +1,18 @@
 package reports;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.core.util.IOUtils;
+import org.bouncycastle.util.encoders.Base64;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -47,12 +52,22 @@ public class GenerateExtentReport extends BaseClass
 	
 	public String getScreenshot(WebDriver driver, String name) throws IOException 
 	{
+//		File screenshot = ((TakesScreenshot)(driver)).getScreenshotAs(OutputType.FILE);
+//		String datentime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY.MM.DD.hh.mm.ss"));
+//		String destination = path+"//screenshots/snap-"+name+" "+datentime+".png";
+//		File location = new File(destination);
+//		FileUtils.copyFile(screenshot, location);
+//		return destination;	
+		
 		File screenshot = ((TakesScreenshot)(driver)).getScreenshotAs(OutputType.FILE);
 		String datentime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY.MM.DD.hh.mm.ss"));
 		String destination = path+"//screenshots/snap-"+name+" "+datentime+".png";
 		File location = new File(destination);
 		FileUtils.copyFile(screenshot, location);
-		return destination;	
+		byte[] base64 = org.apache.commons.io.IOUtils.toByteArray(new FileInputStream(destination));
+		return Base64.toBase64String(base64);
+		
+		
 	}
 
 }
